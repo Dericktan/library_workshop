@@ -23,8 +23,8 @@
 
 			switch ($page)
 			{
-				case 'Discussion':
-					include "";
+				case 'DiscussionRoom':
+					include "./discussion_room/index.php";
 					break;
 				case 'Feedback':
 					include "./feedback/index.php";

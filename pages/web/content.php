@@ -9,7 +9,7 @@
             <img src="../../assets/images/search_1.png" alt="Statistics 'N' Probability" class="statistic" width="150" height="150">
             <p class="box-description" style="color: black;">Search Book</p>
         </a>
-        <a class="box ml-30" href="index.php?page=Discussion">
+        <a class="box ml-30" href="index.php?page=DiscussionRoom">
             <img src="../../assets/images/discussion_1.png" alt="Operating System" class="os" width="150" height="150">
             <p class="box-description" style="color: black;">Discussion Room</p>
         </a>
