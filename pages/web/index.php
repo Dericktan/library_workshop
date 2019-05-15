@@ -59,6 +59,9 @@
 				case 'FeedBackList':
 					include "./";
 					break;
+				case 'SearchBook':
+					include "./book/index.php";
+					break;
 				default:
 					include "content.php";
 					break;
