@@ -114,7 +114,7 @@
         global $con;
 		$id = $_POST['id'];
 		
-		$sql = "UPDATE tb_booking_room set approved='3' where id='$id'";
+		$sql = "UPDATE tb_booking_room set approved='2' where id='$id'";
 
 		$query = mysqli_query($con,$sql);
         if($query == TRUE){	
@@ -133,4 +133,72 @@
         }
 	}
 
+	if(isset($_POST['returnBook']))
+    {
+		global $con;
+		date_default_timezone_set('Asia/Kuala_Lumpur');
+        $date_clicked= date('Y-m-d H:i:s') ;
+
+		$id = $_POST['id'];
+		$select = "SELECT return_date from tb_booking_book where id='$id'";
+		$execute = mysqli_query($con,$select);
+		$date_return = mysqli_fetch_row($execute)[0];
+		$date_return = date($date_return);
+		if($date_clicked > $date_return)
+		{
+			$late = true;
+			$today = date_create($date_clicked);
+			$date_to_return = date_create($date_return);
+			$diff = date_diff($today,$date_to_return);
+			$diff->format("%R%a");
+			$fine = 0.5 * $diff;
+		}
+		else{
+			$diff = NULL;
+			$fine = NULL;
+			$late = false;
+			$latedays = 0;
+		}
+
+		$sql = "UPDATE tb_booking_book set returned=TRUE, late='$diff', fine='$fine' where id='$id'";
+
+		$query = mysqli_query($con,$sql);
+        if($query == TRUE){	
+            echo "<script> alert('Successfully Updated the Booking');</script>";
+            $url = "/pages/admin/index.php?page=BorrowedBook";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to Update the Booking');</script>";
+            $url = "/pages/admin/index.php?page=BorrowedBook";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
+	}
+
+	if(isset($_POST['returnRoomKey']))
+    {
+        global $con;
+		$id = $_POST['id'];
+		
+
+		$query = mysqli_query($con,$sql);
+        if($query == TRUE){	
+            echo "<script> alert('Successfully Decline the Booking');</script>";
+            $url = "/pages/admin/index.php?page=BorrowedRoom";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to Decline the Booking');</script>";
+            $url = "/pages/admin/index.php?page=BorrowedRoom";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
+	}
 ?>
