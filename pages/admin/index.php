@@ -11,20 +11,77 @@
 	<?php
 		require'navbar.php';
 	?>
-<!-- Content -->
-<div class="container">
-    <h2>This is Admin's Dashboard</h2>
-    <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
-    <p>Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
-    <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-    <p>Some text..</p>
-    <p>Some text..</p>
-    <p>Some text..</p>
-    <p>Some text..</p>
-    <p>Some text..</p>
-    <p>Some text..</p>
-    <p>Some text..</p>
+<!-- Admin Container-->
+<div class="admin-container">
+	<!-- start Top Navbar -->
+	<div class="top-navbar">
+	<ul>
+		<li class="top-navbar-text">Welcome Admin</li>
+		<li style="float:right"><a class="active" href="#about">Logout</a></li>
+	</ul>
+	</div>
+	<!-- end of Top Navbar -->
+
+	<!-- Start of Admin Content -->
+	<div class="admin-content">
+		<h2>Here is your content</h2>
+		<!-- Code for changing content -->
+		<?php
+		if(isset($_GET['page']))
+		{
+			$page = $_GET['page'];
+
+			switch ($page)
+			{
+				case 'BookForm':
+					include "./";
+					break;
+				case 'BookList':
+					include "./";
+					break;
+				case 'RoomForm':
+					include "./";
+					break;
+				case 'RoomList':
+					include "./";
+					break;
+				case 'PastYearForm':
+					include "./";
+					break;
+				case 'PastYearList':
+					include "./";
+					break;
+				case 'NewsForm':
+					include "./";
+					break;
+				case 'NewsList':
+					include "./";
+					break;
+				case 'BookBookingForm':
+					include "./";
+					break;
+				case 'RoomBookingForm':
+					include "./";
+					break;
+				case 'PrintingForm':
+					include "./";
+					break;
+				case 'FeedBackList':
+					include "./";
+					break;
+				default:
+					echo "<center><h3>404 | Not Found</h3></center>";
+					break;
+			}
+		}
+		else
+		{
+			// include "../404.html";
+		}
+		?>
+		<!-- end of Admin Content -->
+	</div>
 </div>
-<!-- end of content -->
+<!-- end of Container -->
 </body>
 </html>

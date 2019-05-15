@@ -8,24 +8,36 @@ body{
 .admin-container
 {
 	margin-left: 15%;
-	padding:1px 16px;
 	height:1000px;
+}
+.admin-content
+{
+    margin-left:15px;
 }
 
 /* side-navbar style */
+.side-navbar{
+    width: 15%;
+    position: fixed;
+    background-color: #56a65a;
+    height: 100%;
+}
+.side-navbar h2{
+    padding-left: 12px;
+    color:white ;
+}
 .side-navbar ul{
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width: 15%;
-	background-color: #f1f1f1;
-	position: fixed;
 	height: 100%;
 	overflow: auto;
 }
 .side-navbar li a, .dropbtn {
 	display: block;
-	color: #000;
+    color: #000;
+    font-size: 18px;
+    color:white;
 	padding: 12px 16px;
 	text-decoration: none;
 }
@@ -52,7 +64,7 @@ body{
 .side-navbar .dropdown-content a {
 	color: black;
 	padding: 12px 16px;
-	font-size: 13px;
+	font-size: 15px;
 	text-decoration: none;
 	display: block;
 	text-align: left;
@@ -64,6 +76,47 @@ body{
 	display: block;
 }
 /* end of side-navbar style */
+
+/* style for top-navbar */
+.top-navbar{
+    width:100%;
+    background-color:#696969;
+    color:white;
+}
+.top-navbar .top-navbar-text {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+  }
+.top-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .top-navbar li {
+    float: left;
+  }
+  
+  .top-navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .top-navbar li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .top-navbar .active {
+    background-color: #4CAF50;
+  }
+/* end of top-navbar style */
+
 .container {
     width: 80%;
     margin-left: auto;

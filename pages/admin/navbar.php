@@ -1,8 +1,7 @@
 <!-- Side Navbar -->
 <div class="side-navbar">
 	<ul>
-		<li><a href="#">Welcome</a></li>
-		<li><a href="#home">Home</a></li>
+        <h2>Admin Dashboard</h2>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Manage Book</a>
 			<div class="dropdown-content">
