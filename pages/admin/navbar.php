@@ -39,7 +39,7 @@
 				<a href="#">Printing Request</a>
 			</div>
 		</li>
-		<li><a href="#">View Feedback</a></li>
+		<li><a href="index.php?page=FeedBackList">View Feedback</a></li>
 	</ul>
 </div>
 <!-- end of Side-Navbar -->
