@@ -29,8 +29,8 @@
 				case 'Feedback':
 					include "./feedback/index.php";
 					break;
-				case 'RoomForm':
-					include "./";
+				case 'News':
+					include "./news/index.php";
 					break;
 				case 'RoomList':
 					include "./";
