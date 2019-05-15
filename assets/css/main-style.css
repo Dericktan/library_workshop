@@ -1,0 +1,62 @@
+* {
+    font-family: 'Roboto';
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.ml-20 {
+    margin-left: 20px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.ml-30 {
+    margin-left: 30px;
+}
+
+.bg { 
+    /* The image used */
+    background-image: url("../images/bg.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.align-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-image img {
+    width: 40vw;
+}
+.box-container {
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+.box {
+    width: 10vw;
+    min-height: 200px;
+    padding: 10px;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
