@@ -32,8 +32,8 @@
 				case 'News':
 					include "./news/index.php";
 					break;
-				case 'RoomList':
-					include "./";
+				case 'Printing':
+					include "./printing/index.php";
 					break;
 				case 'PastYearForm':
 					include "./";
