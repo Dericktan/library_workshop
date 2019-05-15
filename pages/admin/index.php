@@ -69,6 +69,9 @@
 				case 'FeedBackList':
 					include "./FeedBack/index.php";
 					break;
+				case 'BookBookingForm':
+					include "./Transaction/bookbooking_form.php";
+					break;
 				default:
 					echo "<center><h3>404 | Not Found</h3></center>";
 					break;
