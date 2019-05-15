@@ -60,3 +60,51 @@ body, html {
 a {
     text-decoration: none;
 }
+
+.btn {
+    padding: 10px 15px 10px 15px;
+    border: 1px solid #449d48;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #3c8c40;
+    color: white;
+    font-weight: 500;
+    border-radius: 3px;
+}
+.btn-primary:hover {
+    background-color: #4CAF50;
+}
+.text-left {
+    float: left;
+}
+.text-right {
+    float: right;
+}
+.title {
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .0rem .375rem .5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-container {
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+}

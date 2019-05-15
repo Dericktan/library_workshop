@@ -9,40 +9,67 @@
 	<title>Document</title>
 </head>
 <body class="bg">
-	<div class="">
-		<div class="align-center" style="padding-top: 50px;">
-			<div class="header-image">
-				<img src="../../assets/images/welcome.png" alt="">
-			</div>
-		</div>
-		<div class="box-container mt-50 mb-30">
-			<a class="box" href="searchpage.php">
-				<img src="../../assets/images/search_1.png" alt="Statistics 'N' Probability" class="statistic" width="150" height="150">
-				<p class="txt_Search" style="color: black;">Search Book</p>
-			</a>
-			<a class="box ml-30" href="bookroom.php">
-				<img src="../../assets/images/discussion_1.png" alt="Operating System" class="os" width="150" height="150">
-				<p class="txt_Discussion" style="color: black;">Discussion Room</p>
-			</a>
-			<a class="box ml-30" href="bookroom.php">
-				<img src="../../assets/images/print.png" alt="Human and Computer Interaction" class="hci" width="150" height="150">
-				<p class="txt_Print" style="color: black;">Printing & Scanning</p>
-			</a>
-		</div>
-		<div class="box-container">
-			<a class="box" href="pastyear.php">
-				<img src="../../assets/images/pastyear.png" alt="Algorithms 'N' Analysis" class="algorithms" width="160" height="150">
-				<p class="txt_algorithms" style="color: black;">Past Year</p>
-			</a>
-			<a class="box ml-30" href="bookroom.php">
-				<img src="../../assets/images/news.png" alt="Workshop I" class="workshop" width="170" height="170">
-				<p class="txt_workshop1" style="color: black;">Latest News</p>
-			</a>
-			<a class="box ml-30" href="bookroom.php">
-				<img src="../../assets/images/feedback.png" alt="Database Design" class="database" width="150" height="150">
-				<p class="txt_Database" style="color: black;">Feedback</p>
-			</a>
-		</div>
+	<!-- Code for changing content -->
+	<div style="height: 60px; padding: 15px 15px 0px 15px;">
+		<?php if (isset($_GET['page'])): ?>
+			<a class="btn btn-primary text-left" href="index.php">Back to main page</a>
+		<?php endif; ?>
+		<a class="btn btn-primary text-right" href="../../logout.php">Log out</a>
 	</div>
+	<?php
+		if(isset($_GET['page']))
+		{
+			$page = $_GET['page'];
+
+			switch ($page)
+			{
+				case 'Discussion':
+					include "";
+					break;
+				case 'Feedback':
+					include "./feedback/index.php";
+					break;
+				case 'RoomForm':
+					include "./";
+					break;
+				case 'RoomList':
+					include "./";
+					break;
+				case 'PastYearForm':
+					include "./";
+					break;
+				case 'PastYearList':
+					include "./";
+					break;
+				case 'NewsForm':
+					include "./";
+					break;
+				case 'NewsList':
+					include "./";
+					break;
+				case 'BookBookingForm':
+					include "./";
+					break;
+				case 'RoomBookingForm':
+					include "./";
+					break;
+				case 'PrintingForm':
+					include "./";
+					break;
+				case 'FeedBackList':
+					include "./";
+					break;
+				default:
+					include "content.php";
+					break;
+			}
+		}
+		else
+		{
+			include "content.php";
+		}
+	?>
+		<!-- end of Admin Content -->
+	
 </body>
 </html>
