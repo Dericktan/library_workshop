@@ -34,12 +34,12 @@
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Manage Transaction</a>
 			<div class="dropdown-content">
-				<a href="#">Book Booking Request</a>
-				<a href="#">Discussion Room Booking Request</a>
-				<a href="#">Printing Request</a>
+				<a href="index.php?page=BookBooking">Book Booking Request</a>
+				<a href="index.php?page=RoomBooking">Discussion Room Booking Request</a>
+				<a href="index.php?page=Printing">Printing Request</a>
 			</div>
 		</li>
-		<li><a href="#">View Feedback</a></li>
+		<li><a href="index.php?page=FeedBackList">View Feedback</a></li>
 	</ul>
 </div>
 <!-- end of Side-Navbar -->
