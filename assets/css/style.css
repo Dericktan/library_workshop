@@ -5,9 +5,9 @@ body{
     margin: 0;
 }
 
-.container
+.admin-container
 {
-	margin-left:15%;
+	margin-left: 15%;
 	padding:1px 16px;
 	height:1000px;
 }
