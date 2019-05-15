@@ -77,5 +77,24 @@
         }
     }
 
-
+    if(isset($_POST['deleteNews'])){
+        global $con;
+        $id = $_POST['id'];
+        $sql = "DELETE FROM tb_news where tb_news.id='$id'";
+        $query = mysqli_query($con,$sql);
+        if($query == TRUE){
+            echo "<script> alert('Successfully Delete the News');</script>";
+            $url = "/pages/admin/index.php?page=NewsList";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to delete the News');</script>";
+            $url = "/pages/admin/index.php?page=NewList";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
+    }
 ?>

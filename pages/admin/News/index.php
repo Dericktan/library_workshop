@@ -33,10 +33,15 @@
     ?>
         <tr>
             <td> <?php echo $i;?></td>
-            <td> <?php echo $title;?></td>
+            <td> <?php if(strlen($title) > 20){echo substr($title,0,20);}else{echo $title;};?></td>
             <td> <?php if(strlen($content) > 20){echo substr($content,0,20);}else{echo $content;}; ?></td>
             <td> <?php echo $date_created;?></td>
-            <td> <a class="btn btn-primary" href="index.php?page=NewsForm&id=<?php echo $id;?>">Edit</a></td>
+            <td> <a class="btn btn-primary" href="index.php?page=NewsForm&id=<?php echo $id;?>">Edit</a>
+            <form action="../../core/news.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $id;?>">
+                <input class="btn btn-primary" type="submit" name="deleteNews" Value="Delete">
+            </form>
+            </td>
         </tr>
     <?php
             }
