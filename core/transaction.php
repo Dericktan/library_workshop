@@ -85,32 +85,52 @@
         }
 	}
 
-    // if(isset($_POST['updateBook'])){
-    //     global $con;
-    //     $id = $_POST['id'];
-    //     $title = $_POST['title'];
-    //     $author = $_POST['author'];
-    //     $book_location = $_POST['book_location'];
-    //     $book_category = $_POST['book_category'];
-    //     $sql = "UPDATE tb_book set title='$title', author ='$author', book_location='$book_location', book_category='$book_category' where tb_book.id='$id'";
-    //     $query = mysqli_query($con,$sql);
-    //     if($query == TRUE){
-    //         echo "<script> alert('Successfully Updated the Book');</script>";
-    //         $url = "/pages/admin/index.php?page=BookList";
-    //         $link = $baseUrl . $url;
-    //         echo '<script> window.location.replace("'. $link .'");</script>';
-    //         return true;
-    //     }
-    //     else{
-    //         echo "<script> alert('Fail to update the Book');</script>";
-    //         $url = "/pages/admin/index.php?page=BookList";
-    //         $link = $baseUrl . $url;
-    //         echo '<script> window.location.replace("'. $link .'");</script>';
-    //         return false;
-    //     }
-    // }
+	if(isset($_POST['approveRoom']))
+    {
+        global $con;
+		$id = $_POST['id'];
+		
+		$sql = "UPDATE tb_booking_room set approved='1' where id='$id'";
 
-    
+		$query = mysqli_query($con,$sql);
+        if($query == TRUE){	
+            echo "<script> alert('Successfully Approved the Booking');</script>";
+            $url = "/pages/admin/index.php?page=RoomBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to Approved the Booking');</script>";
+            $url = "/pages/admin/index.php?page=RoomBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
+	}
 
+	if(isset($_POST['declineRoom']))
+    {
+        global $con;
+		$id = $_POST['id'];
+		
+		$sql = "UPDATE tb_booking_room set approved='3' where id='$id'";
+
+		$query = mysqli_query($con,$sql);
+        if($query == TRUE){	
+            echo "<script> alert('Successfully Decline the Booking');</script>";
+            $url = "/pages/admin/index.php?page=RoomBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to Decline the Booking');</script>";
+            $url = "/pages/admin/index.php?page=RoomBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
+	}
 
 ?>
