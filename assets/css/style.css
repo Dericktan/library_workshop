@@ -13,6 +13,8 @@ body{
 .admin-content
 {
     margin-left:15px;
+    margin-top:15px;
+    margin-right: 15px;
 }
 
 /* side-navbar style */
@@ -193,4 +195,26 @@ a {
 }
 a:hover {
     color: #3c8c40;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }
