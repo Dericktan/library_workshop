@@ -34,46 +34,46 @@
 			</tr>
 		</thead>
 		<tbody>
-		<?php
-		$query ="SELECT * FROM tb_book";
-		if (isset($_GET["book_title"]))
-		{
-			$query .= " WHERE title LIKE '%" . $_GET['book_title'] . "%'";
-		}
-		$sql = mysqli_query($con, $query);
-		
-		if(mysqli_num_rows($sql)==0)
+			<?php
+			$query ="SELECT * FROM tb_book";
+			if (isset($_GET["book_title"]))
 			{
-				echo "<tr> <td colspan='8'> <center>Sorry! There is no data in the database now.</center> </td> </tr>";
+				$query .= " WHERE title LIKE '%" . $_GET['book_title'] . "%'";
 			}
-			else
-			{
-				$i=0;
-				while($data = mysqli_fetch_array($sql))
+			$sql = mysqli_query($con, $query);
+			
+			if(mysqli_num_rows($sql)==0)
 				{
-					$i++;
-					$id = $data['id'];
-					$book_no = $data['book_no'];
-					$title = $data['title'];
-					$author = $data['author'];
-					$location = $data['book_location'];
-					$category =$data['book_category'];
-					$available = $data['available'];
-		?>
-			<tr>
-				<td> <?php echo $i;?></td>
-				<td> <?php echo $book_no;?></td>
-				<td> <?php echo $title;?></td>
-				<td> <?php echo $author;?></td>
-				<td> <?php echo $location;?></td>
-				<td> <?php echo $category;?></td>
-				<td> <?php if($available==TRUE){echo "Yes";}else{echo "No";}?></td>
-				<td> <a class="btn btn-primary" href="index.php?page=BookForm&id=<?php echo $id;?>">Edit</a></td>
-			</tr>
-		<?php
+					echo "<tr> <td colspan='8'> <center>Sorry! There is no data in the database now.</center> </td> </tr>";
 				}
-			}
-		?>
+				else
+				{
+					$i=0;
+					while($data = mysqli_fetch_array($sql))
+					{
+						$i++;
+						$id = $data['id'];
+						$book_no = $data['book_no'];
+						$title = $data['title'];
+						$author = $data['author'];
+						$location = $data['book_location'];
+						$category =$data['book_category'];
+						$available = $data['available'];
+			?>
+				<tr>
+					<td> <?php echo $i;?></td>
+					<td> <?php echo $book_no;?></td>
+					<td> <?php echo $title;?></td>
+					<td> <?php echo $author;?></td>
+					<td> <?php echo $location;?></td>
+					<td> <?php echo $category;?></td>
+					<td> <?php if($available==TRUE){echo "Yes";}else{echo "No";}?></td>
+					<td> <a class="btn btn-primary" href="index.php?page=BookForm&id=<?php echo $id;?>">Edit</a></td>
+				</tr>
+			<?php
+					}
+				}
+			?>
 		</tbody>
 	</table>
 	<!-- <form action="" method="GET">
