@@ -7,29 +7,29 @@
     <div class="box-container mt-50 mb-30">
         <a class="box" href="index.php?page=SearchBook">
             <img src="../../assets/images/search_1.png" alt="Statistics 'N' Probability" class="statistic" width="150" height="150">
-            <p class="txt_Search" style="color: black;">Search Book</p>
+            <p class="box-description" style="color: black;">Search Book</p>
         </a>
         <a class="box ml-30" href="index.php?page=Discussion">
             <img src="../../assets/images/discussion_1.png" alt="Operating System" class="os" width="150" height="150">
-            <p class="txt_Discussion" style="color: black;">Discussion Room</p>
+            <p class="box-description" style="color: black;">Discussion Room</p>
         </a>
         <a class="box ml-30" href="index.php?page=Printing">
             <img src="../../assets/images/print.png" alt="Human and Computer Interaction" class="hci" width="150" height="150">
-            <p class="txt_Print" style="color: black;">Printing & Scanning</p>
+            <p class="box-description" style="color: black;">Printing</p>
         </a>
     </div>
     <div class="box-container">
         <a class="box" href="index.php?page=PastYear">
             <img src="../../assets/images/pastyear.png" alt="Algorithms 'N' Analysis" class="algorithms" width="160" height="150">
-            <p class="txt_algorithms" style="color: black;">Past Year</p>
+            <p class="box-description" style="color: black;">Past Year</p>
         </a>
         <a class="box ml-30" href="index.php?page=News">
             <img src="../../assets/images/news.png" alt="Workshop I" class="workshop" width="170" height="170">
-            <p class="txt_workshop1" style="color: black;">Latest News</p>
+            <p class="box-description" style="color: black;">Latest News</p>
         </a>
         <a class="box ml-30" href="index.php?page=Feedback">
             <img src="../../assets/images/feedback.png" alt="Database Design" class="database" width="150" height="150">
-            <p class="txt_Database" style="color: black;">Feedback</p>
+            <p class="box-description" style="color: black;">Feedback</p>
         </a>
     </div>
 </div>

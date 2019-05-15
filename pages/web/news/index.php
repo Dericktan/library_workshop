@@ -35,11 +35,10 @@
 		<?php 
 			if ($no > 0 && $no < $result->num_rows)
 			{
-				echo "<hr>";
+				echo "<hr style='margin-top: 40px; margin-bottom: 40px;'>";
 			}
 		?>
 		<?php
-					
 				}
 			} else {
 		?>

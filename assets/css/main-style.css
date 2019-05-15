@@ -55,6 +55,18 @@ body, html {
     min-height: 200px;
     padding: 10px;
     background-color: white;
+    position: relative;
+}
+.box-description {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    font-weight: bold;
+    font-size: 18px;
 }
 
 a {
