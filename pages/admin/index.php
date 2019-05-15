@@ -24,7 +24,7 @@
 
 	<!-- Start of Admin Content -->
 	<div class="admin-content">
-		<h2>Here is your content</h2>
+		<!-- <h2>Here is your content</h2> -->
 		<!-- Code for changing content -->
 		<?php
 		if(isset($_GET['page']))
@@ -34,40 +34,40 @@
 			switch ($page)
 			{
 				case 'BookForm':
-					include "./";
+					include "./Book/form.php";
 					break;
 				case 'BookList':
-					include "./";
+					include "./Book/index.php";
 					break;
 				case 'RoomForm':
-					include "./";
+					include "./Room/form.php";
 					break;
 				case 'RoomList':
-					include "./";
+					include "./Room/index.php";
 					break;
 				case 'PastYearForm':
-					include "./";
+					include "./PastYear/form.php";
 					break;
 				case 'PastYearList':
-					include "./";
+					include "./PastYear/index.php";
 					break;
 				case 'NewsForm':
-					include "./";
+					include "./News/form.php";
 					break;
 				case 'NewsList':
-					include "./";
+					include "./News/index.php";
 					break;
-				case 'BookBookingForm':
-					include "./";
+				case 'BookBooking':
+					include "./Transaction/book_request.php";
 					break;
-				case 'RoomBookingForm':
-					include "./";
+				case 'RoomBooking':
+					include "./Transaction/room_request.php";
 					break;
-				case 'PrintingForm':
-					include "./";
+				case 'Printing':
+					include "./Transaction/print_request.php";
 					break;
 				case 'FeedBackList':
-					include "./";
+					include "./FeedBack/index.php";
 					break;
 				default:
 					echo "<center><h3>404 | Not Found</h3></center>";
