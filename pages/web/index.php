@@ -36,28 +36,10 @@
 					include "./printing/index.php";
 					break;
 				case 'PastYearForm':
-					include "./";
+					include "./past_year/form.php";
 					break;
-				case 'PastYearList':
-					include "./";
-					break;
-				case 'NewsForm':
-					include "./";
-					break;
-				case 'NewsList':
-					include "./";
-					break;
-				case 'BookBookingForm':
-					include "./";
-					break;
-				case 'RoomBookingForm':
-					include "./";
-					break;
-				case 'PrintingForm':
-					include "./";
-					break;
-				case 'FeedBackList':
-					include "./";
+				case 'PastYear':
+					include "./past_year/index.php";
 					break;
 				case 'SearchBook':
 					include "./book/index.php";

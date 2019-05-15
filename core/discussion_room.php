@@ -38,7 +38,7 @@
 
     if(isset($_POST['addBooking'])){
         global $con;
-        $user_id = 1;
+        $user_id = $_POST['user_id'];
         $date = $_POST['date'];
         $start_time = $_POST['start_time'];
         $end_time = $_POST['end_time'];

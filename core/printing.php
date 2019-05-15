@@ -47,51 +47,6 @@
 			echo "Sorry, there was an error uploading your file.";
 			return false;
 		}
-
-		// Check if image file is a actual image or fake image
-		$check = getimagesize($files["file"]["tmp_name"]);
-		if($check !== false) {
-			$uploadOk = 1;
-		} else {
-			$uploadOk = 0;
-		}
-
-		if ($uploadOk)
-		{
-			var_dump("Upload OK");
-			// Check if file already exists
-			if (file_exists($target_file)) {
-				echo "Sorry, file already exists.";
-				$uploadOk = 0;
-				return false;
-			}
-			// Check file size
-			if ($files["file"]["size"] > 500000) {
-				echo "Sorry, your file is too large.";
-				$uploadOk = 0;
-				return false;
-			}
-			// Allow certain file formats
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-			&& $imageFileType != "gif" ) {
-				echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-				$uploadOk = 0;
-				return false;
-			}
-			// Check if $uploadOk is set to 0 by an error
-			if ($uploadOk == 0) {
-				echo "Sorry, your file was not uploaded.";
-				return false;
-			// if everything is ok, try to upload file
-			} else {
-				if (move_uploaded_file($files["file"]["tmp_name"], $target_file)) {
-					return $baseDirectory;
-					echo "The file ". basename( $files["file"]["name"]). " has been uploaded.";
-				} else {
-				}
-			}
-			
-		}
 	}
 	
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
