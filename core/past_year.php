@@ -27,13 +27,23 @@
 		$query = $con->query($sql);
 		if ($query != false && $query->num_rows > 0)
 		{
-			return $query;
+			return $query->fetch_assoc();
 		} else {
 			return false;
 		}
 
 		$con->close();
     }
+
+	function generateRandomString($length = 10) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
+	}
 
     function uploadPDF($files) {
 		$uploadDir = "/uploads/files/";
@@ -75,8 +85,7 @@
 			}
 		}
 
-        $sql = "INSERT INTO tb_pastyear (user_id, year, faculty_id, course_id, subject, file) VALUES ('$user_id','$year', '$faculty_id', '$course_id', '$subject', $uploadedDir)";
-        
+        $sql = "INSERT INTO tb_pastyear (user_id, year, faculty_id, course_id, subject, file) VALUES ('$user_id','$year', '$faculty_id', '$course_id', '$subject', '$uploadedDir')";
         $exec = mysqli_query($con,$sql);
         if($exec == TRUE){
             echo "<script> alert('Your past year document has been submitted');</script>";
@@ -86,7 +95,11 @@
             return true;
         }
         else{
-            // echo "<div class='alert alert-danger text-center'> Duplicate Book No Detected.</div>";
+            echo "<script> alert('Your past year document failed to be save');</script>";
+            $url = "/pages/admin/index.php?page=PastYearForm";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
         }
     }
 
@@ -109,7 +122,7 @@
 			}
 		}
 
-        $sql = "INSERT INTO tb_pastyear (user_id, year, faculty_id, course_id, subject, file) VALUES ('$user_id','$year', '$faculty_id', '$course_id', '$subject', $uploadedDir)";
+        $sql = "INSERT INTO tb_pastyear (user_id, year, faculty_id, course_id, subject, file) VALUES ('$user_id','$year', '$faculty_id', '$course_id', '$subject', '$uploadedDir')";
         
         $exec = mysqli_query($con,$sql);
         if($exec == TRUE){
@@ -121,6 +134,46 @@
         }
         else{
             // echo "<div class='alert alert-danger text-center'> Duplicate Book No Detected.</div>";
+        }
+	}
+	
+	if(isset($_POST['updateAdminPastYear'])){
+
+		global $con;
+		$id = $_POST['id'];
+        $user_id = $_POST['user_id'];
+        $year = $_POST['year'];
+        $faculty_id = $_POST['faculty_id'];
+        $course_id = $_POST['course_id'];
+        $subject = $_POST['subject'];
+        $file = $_FILES['file'];
+
+        $uploadedDir = "";
+		if (isset($_FILES["file"]) && count($_FILES["file"]) > 0)
+		{
+			$uploadedDir = uploadPDF($_FILES);
+			if ($uploadedDir == false)
+			{
+				$uploadedDir = "";
+			}
+		}
+
+		$sql = "UPDATE tb_pastyear SET year='$year', faculty_id='$faculty_id', course_id='$course_id', subject='$subject', file='$uploadedDir' WHERE id = '$id'";
+		$exec = mysqli_query($con,$sql);
+		
+        if($exec == TRUE){
+            echo "<script> alert('Your past year document has been submitted');</script>";
+            $url = "/pages/admin/index.php?page=PastYearList";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Your past year document failed to be edited');</script>";
+            $url = "/pages/admin/index.php?page=PastYearForm&id=".$id;
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
         }
     }
 ?>

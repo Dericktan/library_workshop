@@ -1,3 +1,7 @@
+<?php
+	require '../../core/config.php';
+	require '../../core/auth.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
