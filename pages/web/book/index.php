@@ -9,6 +9,9 @@
 
 	$user_id = $_SESSION["id"];
 ?>
+<div class="zoom"style="position: absolute; right:120px; top:15px; z-index: 999;">
+	<a class="btn btn-primary text-right" href="index.php?page=Cart">Cart</a>
+</div>
 <div class="align-center">
 	<h1 class="title">Search your Book Title Here</h1>
 </div>
@@ -31,6 +34,8 @@
 			
 		</div>
 	</form>
+</div>
+<div class="wide-container">
 	<table style="background-color: white;">
 		<thead>
 			<tr>
@@ -83,7 +88,24 @@
 					<td> <?php echo $location;?></td>
 					<td> <?php echo $category;?></td>
 					<td> <?php if($available==TRUE){echo "Yes";}else{echo "No";}?></td>
-					<td> <a class="btn btn-primary" href="index.php?page=BookForm&id=<?php echo $id;?>">Edit</a></td>
+					<td>
+						<?php 
+							if($available==TRUE)
+							{
+						?>
+							<form action="../../core/cart.php" method="POST">
+								<button type="submit" name="addToCart" class="btn btn-primary" value="<?php echo $id; ?>">Add to Cart!</a>
+							</form>
+						<?php
+							}
+							else
+							{
+						?>
+							<button class="btn">Add to Cart!</a>
+						<?php
+							}
+						?>
+					</td>
 				</tr>
 			<?php
 					}
@@ -91,13 +113,4 @@
 			?>
 		</tbody>
 	</table>
-	<!-- <form action="" method="GET">
-		<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-		<div class="form-group">
-			<textarea name="content" class="form-control" rows="30" style="height: 400px; max-width: -webkit-fill-available;"></textarea>
-		</div>
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary" style="width: 100%;"><b>Submit</b></button>
-		</div>
-	</form> -->
 </div>

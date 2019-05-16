@@ -129,6 +129,11 @@ input[type="time"].form-control {
     margin-left: auto;
     margin-right: auto;
 }
+.wide-container {
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
 .news-container {
     padding: 20px;
 }
