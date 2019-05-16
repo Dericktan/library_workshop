@@ -55,6 +55,9 @@
 				case 'SearchBook':
 					include "./book/index.php";
 					break;
+				case 'Cart':
+					include "./book/cart.php";
+					break;
 				default:
 					include "content.php";
 					break;
