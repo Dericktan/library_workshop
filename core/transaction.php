@@ -68,8 +68,18 @@
 		global $con;
         $id = $_POST['id'];
         $sql = "UPDATE tb_booking_book set approved='2' where id='$id'";
+
         $query = mysqli_query($con,$sql);
         if($query == TRUE){	
+            $select = "SELECT tb_booking_book_details.book_id from tb_booking_book_details where booking_book_id='$id'";
+            $exec = mysqli_query($con,$select);
+
+            while($tampung = mysqli_fetch_array($exec))
+            {
+                $book_id = $tampung['book_id'];
+                $updatebook = "UPDATE tb_book set available = true where book_id='$book_id'";
+                $exec = mysqli_query($con,$updatebook);
+            }
             echo "<script> alert('Successfully Decline the Booking');</script>";
             $url = "/pages/admin/index.php?page=BookBooking";
             $link = $baseUrl . $url;
@@ -113,11 +123,18 @@
     {
         global $con;
 		$id = $_POST['id'];
-		
-		$sql = "UPDATE tb_booking_room set approved='2' where id='$id'";
-
+        $sql = "UPDATE tb_booking_room set approved='2' where id='$id'";
 		$query = mysqli_query($con,$sql);
         if($query == TRUE){	
+            $select = "SELECT tb_booking_room.room_id from tb_booking_room where id='$id'";
+            $exec = mysqli_query($con,$select);
+
+            $tampung = mysqli_fetch_array($exec);
+            $room_id = $tampung[0];
+            
+            $updateroom = "UPDATE tb_roomdiscussion set available = true where room_id='$room_id'";
+            $exec = mysqli_query($con,$updateroom);
+
             echo "<script> alert('Successfully Decline the Booking');</script>";
             $url = "/pages/admin/index.php?page=RoomBooking";
             $link = $baseUrl . $url;
