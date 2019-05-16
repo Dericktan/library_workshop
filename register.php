@@ -19,11 +19,11 @@
                         <input type="text" class="form-control" name="username" placeholder="Enter your username ...">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="password" placeholder="Enter your password ...">
+                        <input type="password" class="form-control" name="password" placeholder="Enter your password ...">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="login">Login</button>
+                    <button type="submit" class="btn btn-primary" name="login">Register</button>
                     <div style="margin-top: 20px; margin-bottom: 20px;">
-                        <a href="register.php">I don't have an account</a>
+                        <a href="login.php">I have an account</a>
                     </div>
                 </form>
             </div>
