@@ -16,8 +16,20 @@
 <div class="form-container">
 	<form action="index.php?page=SearchBook" method="get">
 		<input type="hidden" name="page" value="SearchBook">
-		<div class="form-group" style="position: relative;">
-			<input type="text" class="form-control" name="book_title" placeholder="Type your book title here and press enter!" value="<?php if (isset($_GET["book_title"])) { echo $_GET['book_title']; } else { echo ''; } ?>">
+		<div class="form-group">
+			<input type="text" class="form-control" name="book_title" placeholder="Type your book title here!" value="<?php if (isset($_GET["book_title"])) { echo $_GET['book_title']; } else { echo ''; } ?>" style="width: 70%; display: inline;">
+			<select name="book_category" class="form-control" style="width: 20%; display: inline;">
+				<option value="Knowledge" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Knowledge") {echo "Selected";}?> >Knowledge</option>
+				<option value="Education" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Education") {echo "Selected";}?> >Education</option>
+				<option value="Magazine" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Magazine") {echo "Selected";}?> >Magazine</option>
+				<option value="Novel" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Novel") {echo "Selected";}?> >Novel</option>
+				<option value="Fiction" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Fiction") {echo "Selected";}?> >Fiction</option>
+				<option value="Non-Fiction" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Non-Fiction") {echo "Selected";}?> >Non-Fiction</option>
+			</select>
+			<button class="btn btn-primary" type="submit"><img src="../../assets/images/search.png" width="15px" style="filter: invert(100%);" alt=""></button>
+		</div>
+		<div class="form-group">
+			
 		</div>
 	</form>
 	<table style="background-color: white;">
@@ -39,6 +51,10 @@
 			if (isset($_GET["book_title"]))
 			{
 				$query .= " WHERE title LIKE '%" . $_GET['book_title'] . "%'";
+			}
+			if (isset($_GET['book_category']))
+			{
+				$query .= " AND book_category = '" . $_GET['book_category'] . "'";
 			}
 			$sql = mysqli_query($con, $query);
 			
