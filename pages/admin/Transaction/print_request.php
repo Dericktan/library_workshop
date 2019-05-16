@@ -18,7 +18,7 @@
 		</thead>
 		<tbody>
 			<?php
-				$result = getAllPrinting();
+				$result = getPrintingForToday();
 				$no = 0;
 				if ($result != false)
 				{

@@ -19,6 +19,25 @@
 		$con->close();
 	}
 
+	function getPrintingForToday()
+	{
+		global $con;
+		date_default_timezone_set('Asia/Kuala_Lumpur');
+		$date = date("Y-m-d");
+		$sql = "SELECT tb_printing.id, tb_printing.date_of_request, tb_printing.file, tb_printing.total_pages, tb_printing.grayscale, tb_printing.price, tb_printing.paid, tb_users.username FROM tb_printing
+				INNER JOIN tb_users ON tb_users.id = tb_printing.user_id WHERE tb_printing.date_of_request LIKE '%" . $date . "%'";
+		
+		$query = $con->query($sql);
+		if ($query != false && $query->num_rows > 0)
+		{
+			return $query;
+		} else {
+			return false;
+		}
+
+		$con->close();
+	}
+
 	function generateRandomString($length = 10) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
