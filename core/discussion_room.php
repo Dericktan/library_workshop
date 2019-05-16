@@ -5,7 +5,7 @@
     {
 		global $con;
 		
-		$sql = "SELECT * FROM tb_roomdiscussion";
+		$sql = "SELECT * FROM tb_roomdiscussion WHERE available=1";
 		
 		$query = $con->query($sql);
 		if ($query != false && $query->num_rows > 0)
@@ -48,6 +48,10 @@
         
         $exec = mysqli_query($con,$sql);
         if($exec == TRUE){
+            
+            $update = "UPDATE tb_roomdiscussion set available=FALSE where id='$room_id'";
+            $sql = mysqli_query($con,$update);
+
             echo "<script> alert('Your booking has been submitted');</script>";
             $url = "/pages/web/index.php?page=DiscussionRoom";
             $link = $baseUrl . $url;

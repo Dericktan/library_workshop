@@ -218,6 +218,7 @@
 		$sql = mysqli_query($con,$query);
         if($query == TRUE){	
             $room = "UPDATE tb_roomdiscussion set available=TRUE where tb_roomdiscussion.id='$room_id'";
+            $updatekey = mysqli_query($con,$room);
             echo "<script> alert('Successfully Update the Data');</script>";
             $url = "/pages/admin/index.php?page=BorrowedRoom";
             $link = $baseUrl . $url;
