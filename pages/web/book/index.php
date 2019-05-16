@@ -1,13 +1,6 @@
 <?php 
 	require '../../core/config.php';
-	require '../../core/feedback.php';
-	
-	if (logged_in() == false)
-	{
-	    header("Location: ../../login.php");
-	}
-
-	$user_id = $_SESSION["id"];
+	require '../../core/cart.php';
 ?>
 <div class="zoom"style="position: absolute; right:120px; top:15px; z-index: 999;">
 	<a class="btn btn-primary text-right" href="index.php?page=Cart">Cart</a>
@@ -93,7 +86,7 @@
 							if($available==TRUE)
 							{
 						?>
-							<form action="../../core/cart.php" method="POST">
+							<form action="" method="POST">
 								<button type="submit" name="addToCart" class="btn btn-primary" value="<?php echo $id; ?>">Add to Cart!</a>
 							</form>
 						<?php

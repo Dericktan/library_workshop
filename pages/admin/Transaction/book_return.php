@@ -15,12 +15,12 @@
      $query ="SELECT tb_lecturer.lecturer_no as user_no, tb_lecturer.name as user_name, tb_booking_book.id from tb_booking_book
      INNER JOIN tb_users on tb_users.id = tb_booking_book.user_id
      INNER JOIN tb_lecturer on tb_lecturer.lecturer_no = tb_users.username
-	 WHERE tb_booking_book.approved ='1' AND tb_booking_book.returned IS NULL
+	 WHERE tb_booking_book.approved ='1' AND tb_booking_book.returned =''
      UNION ALL
      SELECT tb_student.student_no as user_no, tb_student.name as user_name, tb_booking_book.id from tb_booking_book
      INNER JOIN tb_users on tb_users.id = tb_booking_book.user_id
 	 INNER JOIN tb_student on tb_student.student_no = tb_users.username
-	 WHERE tb_booking_book.approved ='1' AND tb_booking_book.returned IS NULL";
+	 WHERE tb_booking_book.approved ='1' AND tb_booking_book.returned =''";
      $sql = mysqli_query($con, $query);
      
      if(mysqli_num_rows($sql)==0)

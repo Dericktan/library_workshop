@@ -6,6 +6,7 @@
         $select = "SELECT tb_booking_book.created_at, tb_lecturer.lecturer_no as user_no, tb_lecturer.name as user_name, tb_booking_book.id from tb_booking_book
         INNER JOIN tb_users on tb_users.id = tb_booking_book.user_id
         INNER JOIN tb_lecturer on tb_lecturer.lecturer_no = tb_users.username
+        WHERE tb_booking_book.id ='$id'
         UNION ALL
         SELECT  tb_booking_book.created_at, tb_student.student_no as user_no, tb_student.name as user_name, tb_booking_book.id from tb_booking_book
         INNER JOIN tb_users on tb_users.id = tb_booking_book.user_id
@@ -71,14 +72,14 @@
 
         $query = mysqli_query($con,$sql);
         if($query == TRUE){	
-            $select = "SELECT tb_booking_book_details.book_id from tb_booking_book_details where booking_book_id='$id'";
+            $select = "SELECT book_id from tb_booking_book_details where booking_book_id='$id'";
             $exec = mysqli_query($con,$select);
-
+            
             while($tampung = mysqli_fetch_array($exec))
             {
                 $book_id = $tampung['book_id'];
-                $updatebook = "UPDATE tb_book set available = true where book_id='$book_id'";
-                $exec = mysqli_query($con,$updatebook);
+                $updatebook = "UPDATE tb_book set available=TRUE where id='$book_id'";
+                $exec2 = mysqli_query($con,$updatebook);
             }
             echo "<script> alert('Successfully Decline the Booking');</script>";
             $url = "/pages/admin/index.php?page=BookBooking";
@@ -180,7 +181,19 @@
 		$sql = "UPDATE tb_booking_book set returned=TRUE, late='$diff', fine='$fine' where id='$id'";
 
 		$query = mysqli_query($con,$sql);
-        if($query == TRUE){	
+        if($query == TRUE){
+            $selectBookId="SELECT tb_book.id FROM tb_book
+            INNER JOIN tb_booking_book_details on tb_booking_book_details.book_id = tb_book.id
+            where tb_booking_book_details.booking_book_id = '1'";
+            $sql2 = mysqli_query($con,$selectBookId);
+
+            while($data=mysqli_fetch_array($sql2))
+            {
+                $book_id = $data['id'];
+                $update = "UPDATE tb_book set available=TRUE where id='$book_id'";
+                $execute = mysqli_query($con,$update);
+            }
+
             echo "<script> alert('Successfully Updated the Booking');</script>";
             $url = "/pages/admin/index.php?page=BorrowedBook";
             $link = $baseUrl . $url;

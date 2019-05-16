@@ -1,12 +1,5 @@
 <?php 
 	require '../../core/config.php';
-	
-	if (logged_in() == false)
-	{
-	    header("Location: ../../login.php");
-	}
-
-	$user_id = $_SESSION["id"];
 	require '../../core/cart.php';
 ?>
 <div class="zoom"style="position: absolute; right:120px; top:15px; z-index: 999;">
