@@ -131,7 +131,7 @@
 
             $tampung = mysqli_fetch_array($exec);
             $room_id = $tampung[0];
-            
+
             $updateroom = "UPDATE tb_roomdiscussion set available = true where room_id='$room_id'";
             $exec = mysqli_query($con,$updateroom);
 
@@ -199,19 +199,20 @@
 	if(isset($_POST['returnRoomKey']))
     {
         global $con;
-		$id = $_POST['id'];
-		
-
-		$query = mysqli_query($con,$sql);
+        $id = $_POST['id'];
+        $room_id = $_POST['room_id'];
+        $query = "UPDATE tb_booking_room set approved='3' where tb_booking_room.id='$id'";
+		$sql = mysqli_query($con,$query);
         if($query == TRUE){	
-            echo "<script> alert('Successfully Decline the Booking');</script>";
+            $room = "UPDATE tb_roomdiscussion set available=TRUE where tb_roomdiscussion.id='$room_id'";
+            echo "<script> alert('Successfully Update the Data');</script>";
             $url = "/pages/admin/index.php?page=BorrowedRoom";
             $link = $baseUrl . $url;
             echo '<script> window.location.replace("'. $link .'");</script>';
             return true;
         }
         else{
-            echo "<script> alert('Fail to Decline the Booking');</script>";
+            echo "<script> alert('Fail to Update the Data');</script>";
             $url = "/pages/admin/index.php?page=BorrowedRoom";
             $link = $baseUrl . $url;
             echo '<script> window.location.replace("'. $link .'");</script>';
