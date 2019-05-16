@@ -75,6 +75,12 @@
 				case 'RoomBookingForm':
 						include "./Transaction/roombooking_form.php";
 						break;
+				case 'BorrowedBook':
+					include "./Transaction/book_return.php";
+					break;
+				case 'BorrowedRoom':
+					include "./Transaction/roomkey_return.php";
+					break;
 				default:
 					echo "<center><h3>404 | Not Found</h3></center>";
 					break;

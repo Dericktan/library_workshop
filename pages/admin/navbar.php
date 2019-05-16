@@ -35,7 +35,9 @@
 			<a href="javascript:void(0)" class="dropbtn">Manage Transaction</a>
 			<div class="dropdown-content">
 				<a href="index.php?page=BookBooking">Book Booking Request</a>
+				<a href="index.php?page=BorrowedBook">Borrowed Books</a>
 				<a href="index.php?page=RoomBooking">Discussion Room Booking Request</a>
+				<a href="index.php?page=BorrowedRoom">Borrowed Room</a>
 				<a href="index.php?page=Printing">Printing Request</a>
 			</div>
 		</li>
