@@ -142,6 +142,9 @@ body{
 .form-group {
     margin-bottom: 10px;
 }
+.form-group label {
+    font-weight: bold;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -217,4 +220,8 @@ table th {
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+.half-width {
+    width: 50%;
 }

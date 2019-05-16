@@ -1,14 +1,13 @@
 <?php 
 	require '../../core/config.php';
-	require '../../core/auth.php';
 	require '../../core/feedback.php';
 	
-	// if (logged_in() == false)
-	// {
-	//     header("Location: ../../login.php");
-	// }
+	if (logged_in() == false)
+	{
+	    header("Location: ../../login.php");
+	}
 
-	// $user_id = $_SESSION["id"];
+	$user_id = $_SESSION["id"];
 ?>
 <div class="align-center">
 	<h1 class="title">Search your Book Title Here</h1>
@@ -17,7 +16,7 @@
 	<form action="index.php?page=SearchBook" method="get">
 		<input type="hidden" name="page" value="SearchBook">
 		<div class="form-group">
-			<input type="text" class="form-control" name="book_title" placeholder="Type your book title here!" value="<?php if (isset($_GET["book_title"])) { echo $_GET['book_title']; } else { echo ''; } ?>" style="width: 70%; display: inline;">
+			<input type="text" class="form-control" name="book_title" placeholder="Type your book title here!" value="<?php if (isset($_GET["book_title"])) { echo $_GET['book_title']; } else { echo ''; } ?>" style="width: 68%; display: inline;">
 			<select name="book_category" class="form-control" style="width: 20%; display: inline;">
 				<option value="Knowledge" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Knowledge") {echo "Selected";}?> >Knowledge</option>
 				<option value="Education" <?php if(isset($_GET['book_category']) && $_GET['book_category']=="Education") {echo "Selected";}?> >Education</option>

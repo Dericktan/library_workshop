@@ -1,6 +1,5 @@
 <?php 
     require '../../core/config.php';
-    require '../../core/auth.php';
     require '../../core/feedback.php';
     
     if (logged_in() == false)

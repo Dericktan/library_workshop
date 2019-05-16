@@ -26,12 +26,12 @@
 	}
 
 	function login($username, $password) {
-		global $connect;
+		global $con;
 		$userdata = userExists($username);
 	
 		if($userdata) {
-			$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-			$query = $connect->query($sql);
+			$sql = "SELECT * FROM tb_users WHERE username = '$username' AND password = '$password'";
+			$query = $con->query($sql);
 
 			if($query->num_rows == 1) {
                 return true;
@@ -40,7 +40,7 @@
 			return false;
 		}
 	
-		$connect->close();
+		$con->close();
 	}
 
 	function logout() {
@@ -55,22 +55,22 @@
 	}
 
 	function userExists($username) {
-		global $connect;
+		global $con;
 	
-		$sql = "SELECT * FROM users WHERE username = '$username'";
-		$query = $connect->query($sql);
+		$sql = "SELECT * FROM tb_users WHERE username = '$username'";
+		$query = $con->query($sql);
 
 		if ($query->num_rows == 1) {
 			return true;
 		}
 		return false;
-		$connect->close();
+		$con->close();
 	}
 
 	function getLoggedInUser($username) {
-		global $connect;
-		$sql = "SELECT * FROM users WHERE username = '$username'";
-		$query = $connect->query($sql);
+		global $con;
+		$sql = "SELECT * FROM tb_users WHERE username = '$username'";
+		$query = $con->query($sql);
 
 		if ($query->num_rows == 1) {
 			return $query->fetch_assoc();
@@ -78,7 +78,7 @@
 
 		return false;
 	
-		$connect->close();
+		$con->close();
 	}
 
 ?>

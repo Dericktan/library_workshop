@@ -18,6 +18,23 @@
 		$con->close();
     }
 
+    function getPastYear($id)
+    {
+		global $con;
+		
+		$sql = "SELECT * FROM tb_pastyear WHERE id = '$id'";
+		
+		$query = $con->query($sql);
+		if ($query != false && $query->num_rows > 0)
+		{
+			return $query;
+		} else {
+			return false;
+		}
+
+		$con->close();
+    }
+
     function uploadPDF($files) {
 		$uploadDir = "/uploads/files/";
 		$randomStrName = generateRandomString(8);

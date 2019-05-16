@@ -1,14 +1,13 @@
 <?php 
 	require '../../core/config.php';
-	require '../../core/auth.php';
 	require '../../core/past_year.php';
 	
-	// if (logged_in() == false)
-	// {
-	// 	header("Location: ../../login.php");
-	// }
+	if (logged_in() == false)
+	{
+		header("Location: ../../login.php");
+	}
 
-	// $user_id = $_SESSION["id"];
+	$user_id = $_SESSION["id"];
 ?>
 <div class="align-center">
 	<h1 class="title">Past Year</h1>

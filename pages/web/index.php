@@ -1,3 +1,14 @@
+<?php 
+	require '../../core/config.php';
+	require '../../core/auth.php';
+	
+	if (logged_in() == false)
+	{
+		header("Location: ../../login.php");
+	}
+
+    $user_id = $_SESSION["id"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +17,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="../../assets/css/main-style.css">
-	<title>Document</title>
+	<title>Library System</title>
 </head>
 <body class="bg">
 	<!-- Code for changing content -->
