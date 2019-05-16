@@ -26,6 +26,11 @@
 			<a class="btn btn-primary text-left" href="index.php">Back to main page</a>
 		<?php endif; ?>
 		<a class="btn btn-primary text-right" href="../../logout.php">Log out</a>
+		<?php if (isset($_GET['page']) && $_GET['page'] == "PastYear"): ?>
+			<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 3): ?>
+			<a class="btn btn-primary text-right" href="index.php?page=PastYearForm" style="margin-right: 20px;">Add Past Year</a>
+			<?php endif; ?>
+		<?php endif; ?>
 	</div>
 	<?php
 		if(isset($_GET['page']))
