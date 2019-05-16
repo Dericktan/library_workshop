@@ -5,7 +5,8 @@
 	{
 		global $con;
 		
-		$sql = "SELECT * FROM tb_printing";
+		$sql = "SELECT tb_printing.id, tb_printing.date_of_request, tb_printing.file, tb_printing.total_pages, tb_printing.grayscale, tb_printing.price, tb_printing.paid, tb_users.username FROM tb_printing
+				INNER JOIN tb_users ON tb_users.id = tb_printing.user_id";
 		
 		$query = $con->query($sql);
 		if ($query != false && $query->num_rows > 0)
@@ -217,14 +218,14 @@
 		$query = mysqli_query($con,$sql);
 		if($query == TRUE){
 			echo "<script> alert('Successfully update as paid');</script>";
-			$url = "/pages/admin/index.php?page=NewsList";
+			$url = "/pages/admin/index.php?page=Printing";
 			$link = $baseUrl . $url;
 			echo '<script> window.location.replace("'. $link .'");</script>';
 			return true;
 		}
 		else{
 			echo "<script> alert('Fail to update as paid');</script>";
-			$url = "/pages/admin/index.php?page=NewsForm";
+			$url = "/pages/admin/index.php?page=Printing";
 			$link = $baseUrl . $url;
 			echo '<script> window.location.replace("'. $link .'");</script>';
 			return false;
