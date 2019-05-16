@@ -22,7 +22,9 @@
 	<div class="top-navbar">
 	<ul>
 		<li class="top-navbar-text">Welcome Admin</li>
-		<li style="float:right"><a class="active" href="#about">Logout</a></li>
+		<li style="float:right">
+			<a class="btn btn-primary text-right" href="../../logout.php">Log out</a>
+		</li>
 	</ul>
 	</div>
 	<!-- end of Top Navbar -->
