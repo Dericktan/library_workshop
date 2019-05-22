@@ -104,7 +104,7 @@
 					</div>
 					<button type="submit" class="btn btn-primary" name="login">Login</button>
 					<div style="margin-top: 20px; margin-bottom: 20px;">
-						<a href="register.php">I don't have an account</a>
+						<a href="choose_role.php">I don't have an account</a>
 					</div>
 				</form>
 			</div>
