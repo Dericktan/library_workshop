@@ -85,6 +85,9 @@
 				case 'BorrowedBook':
 					include "./Transaction/book_return.php";
 					break;
+				case 'ReturnBookForm':
+					include "./Transaction/book_return_form.php";
+					break;
 				case 'BorrowedRoom':
 					include "./Transaction/roomkey_return.php";
 					break;

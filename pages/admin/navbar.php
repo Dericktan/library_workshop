@@ -42,6 +42,7 @@
 			</div>
 		</li>
 		<li><a href="index.php?page=FeedBackList">View Feedback</a></li>
+		<li><a href="./Transaction/print_income.php" target="_blank">Printing Income</a></li>
 	</ul>
 </div>
 <!-- end of Side-Navbar -->

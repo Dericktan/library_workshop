@@ -21,7 +21,7 @@
             <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
             <div class="form-group">
                 <label for="">File</label>
-                <input type="file" name="file" accept=".pdf">
+                <input type="file" name="file" accept=".pdf,.docx,.doc">
             </div>
             <div class="form-group">
                 <label for="">Grayscale ?</label>

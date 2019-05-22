@@ -26,6 +26,12 @@
 			<a class="btn btn-primary text-left" href="index.php">Back to main page</a>
 		<?php endif; ?>
 		<a class="btn btn-primary text-right" href="../../logout.php">Log out</a>
+		<?php if (!isset($_GET['page']) || $_GET['page'] == ""): ?>
+			<a class="btn btn-primary text-right" style="margin-right:20px;" href="index.php?page=MyBooking">My Booking</a>
+		<?php endif; ?>
+		<?php if (isset($_GET['page']) && $_GET['page'] == "SearchBook"): ?>
+			<a class="btn btn-primary text-right" href="index.php?page=Cart" style="margin-right: 20px;">Cart</a>
+		<?php endif; ?>
 		<?php if (isset($_GET['page']) && $_GET['page'] == "PastYear"): ?>
 			<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 3): ?>
 			<a class="btn btn-primary text-right" href="index.php?page=PastYearForm" style="margin-right: 20px;">Add Past Year</a>
@@ -62,6 +68,9 @@
 					break;
 				case 'Cart':
 					include "./book/cart.php";
+					break;
+				case 'MyBooking':
+					include "./booking/index.php";
 					break;
 				default:
 					include "content.php";

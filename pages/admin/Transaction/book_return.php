@@ -59,10 +59,7 @@
 				</ul>
 			</td>
             <td>
-            <form action="../../core/transaction.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $book_booking_id;?>">
-                <input class="btn btn-primary" type="submit" name="returnBook" Value="Returned">
-            </form>
+                <a href="index.php?page=ReturnBookForm&&id=<?php echo $book_booking_id;?>" class="btn btn-primary">Return</a>
             </td>
         </tr>
     <?php

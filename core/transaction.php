@@ -94,8 +94,40 @@
             echo '<script> window.location.replace("'. $link .'");</script>';
             return false;
         }
-	}
+    }
 
+    if(isset($_POST['UserdeclineBookRequest']))
+	{
+		global $con;
+        $id = $_POST['id'];
+        $sql = "UPDATE tb_booking_book set approved='2' where id='$id'";
+
+        $query = mysqli_query($con,$sql);
+        if($query == TRUE){	
+            $select = "SELECT book_id from tb_booking_book_details where booking_book_id='$id'";
+            $exec = mysqli_query($con,$select);
+            
+            while($tampung = mysqli_fetch_array($exec))
+            {
+                $book_id = $tampung['book_id'];
+                $updatebook = "UPDATE tb_book set available=TRUE where id='$book_id'";
+                $exec2 = mysqli_query($con,$updatebook);
+            }
+            echo "<script> alert('Successfully Decline the Booking');</script>";
+            $url = "/pages/web/index.php?page=MyBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to Decline the Booking');</script>";
+            $url = "/pages/web/index.php?page=MyBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
+    }
+    
 	if(isset($_POST['approveRoom']))
     {
         global $con;
@@ -149,6 +181,37 @@
             echo '<script> window.location.replace("'. $link .'");</script>';
             return false;
         }
+    }
+    
+    if(isset($_POST['UserdeclineRoom']))
+    {
+        global $con;
+		$id = $_POST['id'];
+        $sql = "UPDATE tb_booking_room set approved='2' where id='$id'";
+		$query = mysqli_query($con,$sql);
+        if($query == TRUE){	
+            $select = "SELECT tb_booking_room.room_id from tb_booking_room where id='$id'";
+            $exec = mysqli_query($con,$select);
+
+            $tampung = mysqli_fetch_array($exec);
+            $room_id = $tampung[0];
+
+            $updateroom = "UPDATE tb_roomdiscussion set available = true where room_id='$room_id'";
+            $exec = mysqli_query($con,$updateroom);
+
+            echo "<script> alert('Successfully Decline the Booking');</script>";
+            $url = "/pages/web/index.php?page=MyBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return true;
+        }
+        else{
+            echo "<script> alert('Fail to Decline the Booking');</script>";
+            $url = "/pages/web/index.php?page=MyBooking";
+            $link = $baseUrl . $url;
+            echo '<script> window.location.replace("'. $link .'");</script>';
+            return false;
+        }
 	}
 
 	if(isset($_POST['returnBook']))
@@ -178,18 +241,22 @@
 			$latedays = 0;
 		}
 
+        $booking_details_id = $_POST["booking_details_id"];
+        for ($i = 0; $i < count($booking_details_id); $i++)
+        {
+            $book_condition = $_POST["booking_details_status"][$i];
+            $queryUpdateDetails = "UPDATE tb_booking_book_details SET good_condition = '$book_condition' WHERE id = '$booking_details_id[$i]'";
+            mysqli_query($con, $queryUpdateDetails);
+        }
+
 		$sql = "UPDATE tb_booking_book set returned=TRUE, late='$diff', fine='$fine' where id='$id'";
 
 		$query = mysqli_query($con,$sql);
         if($query == TRUE){
-            $selectBookId="SELECT tb_book.id FROM tb_book
-            INNER JOIN tb_booking_book_details on tb_booking_book_details.book_id = tb_book.id
-            where tb_booking_book_details.booking_book_id = '1'";
-            $sql2 = mysqli_query($con,$selectBookId);
-
-            while($data=mysqli_fetch_array($sql2))
+            $books_id = $_POST["books_id"];
+            for ($i = 0; $i < count($books_id); $i++)
             {
-                $book_id = $data['id'];
+                $book_id = $books_id[$i];
                 $update = "UPDATE tb_book set available=TRUE where id='$book_id'";
                 $execute = mysqli_query($con,$update);
             }

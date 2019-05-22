@@ -2,9 +2,6 @@
 	require '../../core/config.php';
 	require '../../core/cart.php';
 ?>
-<div class="zoom"style="position: absolute; right:120px; top:15px; z-index: 999;">
-	<a class="btn btn-primary text-right" href="index.php?page=Cart">Cart</a>
-</div>
 <div class="align-center">
 	<h1 class="title">Search your Book Title Here</h1>
 </div>
